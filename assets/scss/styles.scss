@@ -1,0 +1,78 @@
+/*=============== TOGGLE SWITCH ===============*/
+:root{
+    /*========== Colors ==========*/
+    /*Color mode HSL(hue, saturation, lightness)*/
+    --line-color: hsl(234, 12%, 35%);
+    --active-color: hsl(234, 100%, 98%);
+    --inactive-color: hsl(234, 20%, 68%);
+    --body-color: hsl(234, 12%, 8%);
+}
+
+*{
+    box-sizing: border-box;
+}
+
+body{
+    height: 100vh;
+    margin: 0;
+    display: grid;
+    place-items: center;
+    background-color: var(--body-color);
+}
+
+.toggle{
+    &__content{
+        display: grid;
+        row-gap: 1.5rem;
+    }
+    &__label{
+        cursor: pointer;
+        padding-block: .5rem;
+    }
+    &__check{
+        display: none;
+    }
+    &__rail{
+        position: relative;
+        width: 52px;
+        height: 4px;
+        background-color: var(--line-color);
+        border-radius: 2rem;
+    }
+    &__circle{
+        display: block;
+        width: 24px;
+        height: 24px;
+        background-color: var(--body-color);
+        box-shadow: inset 0 0 0 4px var(--inactive-color);
+        border-radius: 50%;
+        position: absolute;
+        left: 0;
+        top: 0;
+        bottom: 0;
+        margin: auto 0;
+        transition: transform .4s, box-shadow .4s;
+        z-index: 2;
+    }
+    &__border{
+        position: absolute;
+        width: 32px;
+        height: 32px;
+        background-color: var(--body-color);
+        border-radius: 50%;
+        left: -4px;
+        top: 0;
+        bottom: 0;
+        margin: auto 0;
+        transition: transform .4s;
+    }
+    // Toggle animation effects
+    &__check:checked ~ .toggle__rail .toggle__circle{
+        transform: translateX(28px);
+        box-shadow: inset 0 0 0 12px var(--active-color);
+    }
+    &__check:checked ~ .toggle__rail .toggle__border{
+        transform: translateX(28px);
+    }
+}
+
