@@ -1,0 +1,23 @@
+/*=============== TOGGLE SWITCH ===============*/
+:root {
+  /*========== Colors ==========*/
+  /*Color mode HSL(hue, saturation, lightness)*/
+  --line-color: hsl(234, 12%, 35%);
+  --active-color: hsl(234, 100%, 98%);
+  --inactive-color: hsl(234, 20%, 68%);
+  --body-color: hsl(234, 12%, 8%);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  height: 100vh;
+  margin: 0;
+  display: grid;
+  place-items: center;
+  background-color: var(--body-color);
+}
+
+/* Toggle animation effects */
